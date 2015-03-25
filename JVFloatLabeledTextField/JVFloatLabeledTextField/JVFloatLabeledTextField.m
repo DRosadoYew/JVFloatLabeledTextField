@@ -93,6 +93,10 @@
 
 - (void)showFloatingLabel:(BOOL)animated
 {
+    // TODO: Expose this via the public interface
+    self.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    // --
+    
     void (^showBlock)() = ^{
         _floatingLabel.alpha = 1.0f;
         _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
@@ -115,6 +119,10 @@
 
 - (void)hideFloatingLabel:(BOOL)animated
 {
+    // TODO: Expose this via the public interface
+    self.contentVerticalAlignment = self.text.length == 0 ? UIControlContentVerticalAlignmentCenter : UIControlContentVerticalAlignmentBottom;
+    // --
+    
     void (^hideBlock)() = ^{
         _floatingLabel.alpha = 0.0f;
         _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
